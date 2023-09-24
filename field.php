@@ -9,9 +9,10 @@
 	<div style='height: 100%' class='col-sm-3'>
 		<center>
 			<h1>TruckTrack</h1><h3>Field Client</h3><br>
-			<button onClick="sendStatus('reststop')">Signal Rest Stop</button><br><br>
-			<button onClick="sendStatus('breakdown')">Signal Breakdown</button><br><br>
-			<button onClick="sendStatus('traffic')">Signal Heavy Traffic</button><br><br>
+			<button onClick="sendStatus('normal')" type="button" class="btn btn-success">Signal Normal/OK</button><br><br>
+			<button onClick="sendStatus('reststop')" type="button" class="btn btn-primary">Signal Rest Stop</button><br><br>
+			<button onClick="sendStatus('traffic')" type="button" class="btn btn-warning">Signal Heavy Traffic</button><br><br>
+			<button onClick="sendStatus('breakdown')" type="button" class="btn btn-danger">Signal Breakdown</button><br><br>
 			<p style="position: fixed; bottom: 10;">Reporting as: A-59-39</p>
 		</center>
 	</div>
