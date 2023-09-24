@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Sep 23, 2023 at 05:36 AM
+-- Generation Time: Sep 24, 2023 at 03:35 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.26
 
@@ -33,8 +33,8 @@ DROP TABLE IF EXISTS `trucks`;
 CREATE TABLE IF NOT EXISTS `trucks` (
   `UTID` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `Name` text NOT NULL,
-  `Lat` decimal(10,0) NOT NULL DEFAULT '0',
-  `Lon` decimal(10,0) DEFAULT '0',
+  `Lat` double NOT NULL DEFAULT '0',
+  `Lon` double DEFAULT '0',
   `status` enum('normal','reststop','traffic','breakdown') NOT NULL DEFAULT 'normal',
   UNIQUE KEY `UTID` (`UTID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
