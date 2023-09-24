@@ -18,11 +18,10 @@
 	<div style='height: 100%' class='col-sm-9' id='truckmap'></div>
 </div>
 <script>
-	var mymap = L.map('truckmap').setView(new L.LatLng(0, 0), 4);
+	var mymap = L.map('truckmap').setView(new L.LatLng(0, 0), 0);
 	L.control.scale().addTo(mymap);
 	L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: 'Tiles &copy; Open Street Map'}).addTo(mymap);
 	var markerGroup = L.layerGroup().addTo(mymap);
-	L.marker([0, 0]).addTo(mymap);					
 
 	options = {
 		enableHighAccuracy: true,
@@ -41,4 +40,11 @@
 		ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 		ajax.send('status='+status+'&truck=1');
 	}
+	if(typeof(EventSource) !== "undefined") {
+	var sourcemap = new EventSource("updateMap.php");
+	sourcemap.onmessage = function(event) {
+		markerGroup.clearLayers();
+		eval(event.data);
+	};
+}
 </script>
